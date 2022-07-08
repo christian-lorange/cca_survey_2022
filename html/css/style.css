@@ -1,0 +1,324 @@
+body {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+label.question_label {
+    display: inline;
+    padding-top: 20px;
+}
+
+label.op_demographics, label.prod_demographics, label.rnd_source{
+    display: block;
+}
+
+label.question_label::before {
+    content: "\a";
+    white-space: pre;
+}
+
+span#n_male, span#n_female, span#n_other, span#y2021_n_stove_sales {
+    background-color: white;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/*span::before {
+    content: "\a";
+    white-space: pre;
+}*/
+
+
+.checkbox_section {
+    text-align: left;
+    width: fit-content;
+    margin: auto;
+}
+
+.checkbox_section > label.question_label {
+    text-align: center;
+}
+
+/*Start of checkbox buttons*/
+
+#ck-button {
+/*    margin:4px;
+    background-color:#EFEFEF;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    float:left;
+    display: none;*/
+}
+
+
+div#ck-button {
+    margin: auto;
+    text-align: center;
+    display: inline-flex;
+}
+
+
+#ck-button label {
+
+    width:auto;
+}
+
+#ck-button label span {
+    text-align:center;
+    padding:3px 0px;
+    display:none;
+}
+
+#ck-button label input {
+    position:absolute;
+    top:-20px;
+}
+
+#ck-button input:checked + span {
+  display: inline-block;
+  border-style: solid;
+  border-radius: 10px;
+  background-color: lightblue;
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+span.close {
+    display: inline-block !important;
+    margin-left: 20px !important;
+    font-weight: bolder !important;
+    padding: 5px !important;
+}
+
+
+   /*End of checkbox buttons*/
+
+
+/*Start of investor table*/
+table.investor_table {
+  width: 90vw !important;
+  background-color: #0280bf;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-style: solid;
+  color: #000000;
+  margin:auto;
+}
+
+table.investor_table td, table.investor_table th {
+  border-width: 2px;
+  border-style: solid;
+  padding: 3px;
+}
+
+table.investor_table thead {
+
+}
+
+select[id^="invest_source"]{
+       width: 100% !important;
+}
+
+
+.grid-container_investments {
+  display: grid;
+  grid-template-columns: 66vw 33vw ;
+  padding: 10px;
+}
+
+.invest_grid {
+    top: 50%;
+    position: relative;
+    float: left;
+}
+
+button#invest_btn {
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    background-color: #578c43;
+
+}
+/*End of investor table*/
+
+
+/*Start of stove sales table*/
+.grid-container_stove_sales {
+  display: grid;
+  grid-template-columns: 33vw 33vw 33vw ;
+  padding: 10px;
+  background-color:#0280bf;
+  display: none;
+}
+
+
+span.sales_ctr {
+    display: none;
+}
+
+input.sales_ctr {
+    display: none;
+}
+
+
+
+table#stove_sales_details {
+    display: inline-grid;
+    border: 1px solid;
+}
+
+
+table#stove_sales_details {
+    display: inline-grid;
+}
+
+table#stove_sales_details tr {
+    border: 1px solid;
+}
+
+table#stove_sales_details tr:first-child td {
+    font-weight: bolder;
+}
+
+table#fuel_sales_details tr {
+    border: 1px solid;
+    display: inline-block;
+}
+
+table#fuel_sales_details tr:first-child td {
+    font-weight: bolder;
+}
+
+tbody#stove_sales_details_body, tbody#fuel_sales_details_body {
+    display: inline-block;
+    width: 96vw;
+
+}
+
+td.stove_sales_details_body, td.fuel_sales_details_body {
+    display: inline-grid !important;
+}
+
+tr.stove_sales_details, tr.fuel_sales_details {
+    border: 1px solid;   
+}
+
+div#fuel_sales_div {
+    display: none;
+}
+
+div#stove_sales_div {
+    display: none;
+}
+/*End ost stove sales table*/
+
+/*Start of navigation*/
+.content_section {
+    display: none;
+}
+
+#login {
+    display: block;
+}
+
+
+.navigation {
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    background-color: #f99303;
+}
+
+/*End of navigation*/
+
+
+/*Start of general*/
+.note{
+    font-style: italic;
+    /*display: block;*/
+}
+
+.error_note{
+    font-style: italic;
+    display: none;
+    color: red;
+}
+
+label {
+    font-weight: normal;
+    text-transform:  none;
+}
+
+label.question_label {
+    font-weight: bolder;
+    text-transform:  uppercase;
+    padding-right: 10px;
+}
+
+label.question_label_ch, label.question_label_fuel {
+    padding-right: 10px;
+    display:    block   ;
+}
+
+
+label.question_label_ch > span::after {
+    content: "";
+    white-space: pre;
+}
+/*End of general*/
+
+
+/*Employee tables*/
+.grid-container {
+  display: grid;
+  grid-template-columns: 33vw 33vw 33vw;
+  background-color: #0280bf;
+  padding: 10px;
+}
+
+div#q_smartmeter {
+    display: none;
+}
+
+
+button#check_errors {
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    background-color: #578c43;
+    margin-bottom: 30px;
+    display: none;
+    margin: auto;
+    margin-top: 30px;
+}
+
+button.review_btns {
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    background-color: #F8F8FF;
+    display: block;
+}
+
+
+.header {
+    width: 100vw;
+    background-color: #0280bf;
+}
+
+.header > h2 {
+    color: white;
+    font-weight: bolder;
+}
