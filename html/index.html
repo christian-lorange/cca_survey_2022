@@ -158,7 +158,7 @@
         </div>
 
         <div id="section4" class="content_section">
-            <div class="header"><h2>Investments</h2></div>
+            <div class="header"><h2>Investments in 2020 and 2021</h2></div>
             <table id="investor_table" class="investor_table">
               <thead>
                 <tr>
@@ -174,7 +174,7 @@
               <tbody>
                 <tr>
                   <td><input type="value" class="" placeholder="Investor" id="invest_name_1"></td>
-                  <td><input type="text" class="yearpicker" placeholder="Year (yyyy)" id="invest_year_1"></td>
+                  <td><input type="text" class="yearpicker_invest" placeholder="Year (yyyy)" id="invest_year_1"></td>
                   <td><select id="invest_source_1">
                     <option value="no_response">Investor Type</option>
                     <option value="crowd">Crowdfunding Platforms</option>
@@ -437,11 +437,17 @@
     <script src="js/script.js"></script>
 
 
-    <script type="text/javascript">$(".yearpicker").yearpicker(
-{
-    endYear:2021,
+    <script type="text/javascript">
+      $(".yearpicker").yearpicker({
+        endYear:2021,
+      })
 
-})</script>
+      $(".yearpicker_invest").yearpicker({
+        startYear: 2020,
+        endYear:2021,
+      })
+
+    </script>
 
 
 </html>
