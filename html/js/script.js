@@ -13,8 +13,9 @@ function makeid(length) {
 // Add table row to investors table
 function add_investor() {   
 unique = makeid(4) 
-document.getElementById("investor_table").insertRow(-1).innerHTML = '<tr><td><input type="value" class="" placeholder="Investor" id="invest_name_'+unique+'"></td><td><input type="text" class="yearpicker" placeholder="Year (yyyy)" id="invest_year_'+unique+'"></td><td><select id="invest_source_'+unique+'"><option value="0">Investor Type</option><option value="crowd">Crowdfunding Platforms</option><option value="multilateral">Multilateral or Bilateral Development Financial Institutions</option><option value="government">Government</option><option value="foundation">Foundation</option><option value="pvt_equity">Private Equity</option><option value="angel">Angel Investors</option><option value="impact">Impact Fund</option><option value="other_pvt">Other Private Investors</option></select></td><td><select id="invest_type_'+unique+'"><option value="0">Investment Type</option><option value="debt">Debt</option><option value="equity">Equity</option><option value="grant">Grant</option></select></td><td><input type="number" min="0" step="0" class="num" placeholder="Amount ($ USD)" id="invest_amount_'+unique+'"></td><td><select id="invest_gender_'+unique+'"><option value="0">Gender Lens?</option><option value="yes">Yes</option><option value="no">No</option></select></td><td><input type="button" value="Delete Row" onclick="SomeDeleteRowFunction()"></td></tr>';
+document.getElementById("investor_table").insertRow(-1).innerHTML = '<tr><td><input type="value" class="" placeholder="Investor" id="invest_name_'+unique+'"></td><td><input type="text" class="yearpicker" placeholder="Year (yyyy)" id="invest_year_'+unique+'"></td><td><select id="invest_source_'+unique+'"><option value="0">Investor Type</option><option value="crowd">Crowdfunding Platforms</option><option value="multilateral">Multilateral or Bilateral Development Financial Institutions</option><option value="government">Government</option><option value="foundation">Foundation</option><option value="pvt_equity">Private Equity</option><option value="angel">Angel Investors</option><option value="impact">Impact Fund</option><option value="other_pvt">Other Private Investors</option></select></td><td><select id="invest_type_'+unique+'"><option value="0">Investment Type</option><option value="debt">Debt</option><option value="equity">Equity</option><option value="grant">Grant</option></select></td><td><input type="number" min="0" step="0" class="num num_pos" placeholder="Amount ($ USD)" id="invest_amount_'+unique+'"></td><td><select id="invest_gender_'+unique+'"><option value="0">Gender Lens?</option><option value="yes">Yes</option><option value="no">No</option></select></td><td><input type="button" value="Delete Row" onclick="SomeDeleteRowFunction()"></td></tr>';
 $(".yearpicker").yearpicker()
+prevent_negative()
 }
 
 function SomeDeleteRowFunction() {
@@ -253,7 +254,7 @@ document.getElementById("previous_section").addEventListener("click",function(){
 document.getElementById("next_section").addEventListener("click",function(){navigation("next")})
 
 function navigation(direction){
-  index = section_text.indexOf(document.getElementById("next_section").innerHTML.substring(6))
+  index = section_text.indexOf(document.getElementById("next_section").innerHTML.replace("Go forward to ",""))
   if (index==-1){
     index=8
   }
@@ -262,13 +263,13 @@ function navigation(direction){
     document.getElementById(section_tags[i]).style.display="none"
   }
   if (direction=="next"){
-    document.getElementById("previous_section").innerHTML="Go to "+section_text[index-1]
-    document.getElementById("next_section").innerHTML="Go to "+section_text[index+1]
+    document.getElementById("previous_section").innerHTML="Go back to "+section_text[index-1]
+    document.getElementById("next_section").innerHTML="Go forward to "+section_text[index+1]
     document.getElementById(section_tags[index]).style.display="block"
   }
   else {
-    document.getElementById("previous_section").innerHTML="Go to "+section_text[index-3]
-    document.getElementById("next_section").innerHTML="Go to "+section_text[index-1]
+    document.getElementById("previous_section").innerHTML="Go back to "+section_text[index-3]
+    document.getElementById("next_section").innerHTML="Go forward to "+section_text[index-1]
     document.getElementById(section_tags[index-2]).style.display="block"
   }
 
@@ -278,13 +279,13 @@ function navigation(direction){
   else {
     document.getElementById("previous_section").style.display="none"
   }
-  if (document.getElementById("previous_section").innerHTML == "Go to undefined") {
+  if (document.getElementById("previous_section").innerHTML == "Go back to undefined") {
    document.getElementById("previous_section").style.display="none" 
   }
   else {
     document.getElementById("previous_section").style.display=""
   }
-  if (document.getElementById("next_section").innerHTML == "Go to undefined") {
+  if (document.getElementById("next_section").innerHTML == "Go forward to undefined") {
    document.getElementById("next_section").style.display="none" 
   }
   else {
@@ -343,6 +344,46 @@ document.getElementById("stove_sales").addEventListener("change", function(){
     document.getElementById("stove_sales_div").style.display="none";
   }
 })
+
+
+// Start of revenue calculations
+y2020_r = ['y2020_rev_stoves','y2020_rev_prod_other','y2020_rev_carbon','y2020_rev_rbf','y2020_rev_other']
+for (var i = 0; i < y2020_r.length; i++) {
+  document.getElementById(y2020_r[i]).addEventListener("change", function(){
+    calc_y2020()
+    })
+}
+
+function calc_y2020(){
+  t=0;
+  for (var i = 0; i < y2020_r.length; i++) {
+    if(parseInt(document.getElementById(y2020_r[i]).value)>0){
+      t=t+parseInt(document.getElementById(y2020_r[i]).value)
+    }
+  }
+  document.getElementById('y2020_rev').innerHTML="$"+t
+}
+
+y2021_r = ['y2021_rev_stoves','y2021_rev_prod_other','y2021_rev_carbon','y2021_rev_rbf','y2021_rev_other']
+for (var i = 0; i < y2021_r.length; i++) {
+  document.getElementById(y2021_r[i]).addEventListener("change", function(){
+    calc_y2021()
+  })
+}
+
+function calc_y2021(){
+  t=0;
+  for (var i = 0; i < y2021_r.length; i++) {
+    if(parseInt(document.getElementById(y2021_r[i]).value)>0){
+      t=t+parseInt(document.getElementById(y2021_r[i]).value)
+    }
+  }
+  document.getElementById('y2021_rev').innerHTML="$"+t
+}
+
+
+
+// End of revenue calculations
 
 
 // Start of error checking
@@ -420,8 +461,8 @@ function err_nav(section){
   for (var i = 0; i < section_tags.length; i++) {
     document.getElementById(section_tags[i]).style.display="none"
   }
-  document.getElementById("previous_section").innerHTML="Go to "+section_text[index-1]
-  document.getElementById("next_section").innerHTML="Go to "+section_text[index+1]
+  document.getElementById("previous_section").innerHTML="Go back to "+section_text[index-1]
+  document.getElementById("next_section").innerHTML="Go forward to "+section_text[index+1]
   document.getElementById(section).style.display="block"
 
   if (document.getElementById("previous_section").innerHTML !== "") {
@@ -430,13 +471,13 @@ function err_nav(section){
   else {
     document.getElementById("previous_section").style.display="none"
   }
-  if (document.getElementById("previous_section").innerHTML == "Go to undefined") {
+  if (document.getElementById("previous_section").innerHTML == "Go back to undefined") {
    document.getElementById("previous_section").style.display="none" 
   }
   else {
     document.getElementById("previous_section").style.display=""
   }
-  if (document.getElementById("next_section").innerHTML == "Go to undefined") {
+  if (document.getElementById("next_section").innerHTML == "Go forward to undefined") {
    document.getElementById("next_section").style.display="none" 
   }
   else {
@@ -466,3 +507,21 @@ for (var i = 0; i < input_list.length; i++) {
       });
 }
 // End of error checking
+
+
+
+// prevent negative numbers
+function prevent_negative(){
+  neg_el = document.getElementsByClassName("num_pos")
+  for (var i = 0; i < neg_el.length; i++) {
+    if(neg_el[i].value>=0){}
+      else {
+      neg_el[i].value=0
+      neg_el[i].dispatchEvent(new Event('change'));
+          }
+    neg_el[i].addEventListener("change", function(){prevent_negative_helper()})
+  }
+}
+prevent_negative()
+function prevent_negative_helper(){prevent_negative()}
+// End of negative numbers

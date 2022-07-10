@@ -136,12 +136,27 @@ select[id^="invest_source"]{
 button#invest_btn {
     font-weight: 900;
     font-size: 16px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 3px;
     background-color: #578c43;
 
+}
+
+
+div#gender {
+    text-align: left;
+    width: 50vw;
+    margin: auto;
+}
+
+div#gender > p {
+    font-size: 0.6em;
+}
+
+div#gender > p > a {
+    font-size: 1em;
 }
 /*End of investor table*/
 
@@ -229,7 +244,7 @@ div#stove_sales_div {
 .navigation {
     font-weight: 900;
     font-size: 16px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 3px;
@@ -258,7 +273,7 @@ label {
 
 label.question_label {
     font-weight: bolder;
-    text-transform:  uppercase;
+    /*text-transform:  uppercase;*/
     padding-right: 10px;
 }
 
@@ -291,7 +306,7 @@ div#q_smartmeter {
 button#check_errors {
     font-weight: 900;
     font-size: 16px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 3px;

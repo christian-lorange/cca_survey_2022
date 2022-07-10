@@ -20,10 +20,10 @@
     <body>
         <div id="login" class="content_section">
             <div class="header"><h2>2022 CCA Survey</h2></div>
-            <label class="question_label">Name of business<input type="value" class="req" placeholder="Name of business" id="business_name" data_id="login"/></label> <label class="question_label">Email of Individual Beginning this Survey
+            <label class="question_label">Name of Business<input type="value" class="req" placeholder="Name of business" id="business_name" data_id="login"/></label> <label class="question_label">Email of Individual Beginning this Survey
             <input type="value" class="req" placeholder="Email" id="contact_email" data_id="login" /></label>
             <br><span class="note">We will use this email to send you the access token associated with this survey if you forget it.</span>
-            <label class="question_label">Contact<input type="value" class="req" placeholder="Contact" id="contact_name" data_id="login"/></label>
+            <label class="question_label">Respondent’s Name<input type="value" class="req" placeholder="Contact" id="contact_name" data_id="login"/></label>
         </div>
 
         <div id="section1" class="content_section">
@@ -46,27 +46,27 @@
             <div class="grid-container">
               <div class="grid-item">
             <label class="question_label">Number of full-time male employees
-            <input type="value" class="req num emp_num" placeholder="Number of full-time male employees" id="n_ft_male" value="" data_id="section1"/></label></div>
+            <input type="value" class="req num emp_num num_pos" placeholder="Number of full-time male employees" id="n_ft_male" value="" data_id="section1"/></label></div>
               <div class="grid-item"><label class="question_label">Number of part-time male employees
-            <input type="value" class="req num emp_num" placeholder="Number of part-time male employees" id="n_pt_male" value="" data_id="section1"/></label></div>
+            <input type="value" class="req num emp_num num_pos" placeholder="Number of part-time male employees" id="n_pt_male" value="" data_id="section1"/></label></div>
               <div class="grid-item"><label class="question_label">Total Number of employees - male<br><span id="n_male"/>0</span></label></div>
             </div>
 <br>
             <div class="grid-container">
               <div class="grid-item">
  <label class="question_label">Number of full-time female employees
-            <input type="value" class="req num emp_num" placeholder="Number of full-time female employees" id="n_ft_female" value="" data_id="section1"/> </label></div>
+            <input type="value" class="req num emp_num num_pos" placeholder="Number of full-time female employees" id="n_ft_female" value="" data_id="section1"/> </label></div>
               <div class="grid-item"><label class="question_label">Number of part-time female employees
-            <input type="value" class="req num emp_num" placeholder="Number of part-time female employees" id="n_pt_female" value="" data_id="section1"/></label></div>
+            <input type="value" class="req num emp_num num_pos" placeholder="Number of part-time female employees" id="n_pt_female" value="" data_id="section1"/></label></div>
               <div class="grid-item"><label class="question_label">Total Number of employees - female
             <br><span id="n_female" />0</span></label></div>
             </div>
 <br>
         <div class="grid-container">
           <div class="grid-item"><label class="question_label">Number of full-time gender unknown/other/non-binary employees
-            <input type="value" class="req num emp_num" placeholder="Number of full-time gender unknown/other/non-binary employees" id="n_pt_other" value="" data_id="section1"/> </label></div>
+            <input type="value" class="req num emp_num num_pos" placeholder="Number of full-time gender unknown/other/non-binary employees" id="n_pt_other" value="" data_id="section1"/> </label></div>
           <div class="grid-item"> <label class="question_label">Number of part-time gender unknown/other/non-binary employees
-            <input type="value" class="req num emp_num" placeholder="Number of part-time gender unknown/other/non-binary employees" id="n_ft_other" value="" data_id="section1"/></label></div>
+            <input type="value" class="req num emp_num num_pos" placeholder="Number of part-time gender unknown/other/non-binary employees" id="n_ft_other" value="" data_id="section1"/></label></div>
           <div class="grid-item"><label class="question_label">Total Number of employees - gender unknown/other/non-binary
             <br><span id="n_other" />0</span></label></div>
         </div>
@@ -74,11 +74,11 @@
 <br>
         <div class="grid-container">
           <div class="grid-item"><label class="question_label">Number of male employees in management role
-            <br><input type="value" class="req num" placeholder="Number of male employees in management role" id="n_male_man" data_id="section1"/></label> </div>
+            <br><input type="value" class="req num num_pos" placeholder="Number of male employees in management role" id="n_male_man" data_id="section1"/></label> </div>
           <div class="grid-item"><label class="question_label">Number of female employees in management role
-           <br> <input type="value" class="req num" placeholder="Number of female employees in management role" id="n_female_man" data_id="section1"/></label></div>
+           <br> <input type="value" class="req num num_pos" placeholder="Number of female employees in management role" id="n_female_man" data_id="section1"/></label></div>
           <div class="grid-item"> <label class="question_label">Number of gender unknown/other/non-binary employees in management role
-            <br><input type="value" class="req num" placeholder="Number of gender unknown/other/non-binary employees in management role" id="n_other_man" data_id="section1"/></label></div>
+            <br><input type="value" class="req num num_pos" placeholder="Number of gender unknown/other/non-binary employees in management role" id="n_other_man" data_id="section1"/></label></div>
           </div>
 
  <label class="question_label">Year of incorporation</label>
@@ -108,23 +108,25 @@
         <div id="section2" class="content_section">
             <div class="header"><h2>2020 Sales Revenues</h2></div>
             <h3>INTERNAL NOTE - THIS SECTION WILL ONLY SHOW FOR GROUPS WHO DID NOT SUBMIT LAST YEAR</h3>
-            <label class="question_label">Total revenue 2020 ($ USD)</label><input type="number" min="0" step="0" class="num" placeholder="Total revenue 2020 ($ USD)" id="y2020_rev" />
-            <label class="question_label">Revenues from clean cooking sales ($ USD) 2020</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from clean cooking sales ($ USD) 2020" id="y2020_rev_stoves" />
-            <label class="question_label">Revenues from other product sales ($ USD) 2020</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from other product sales ($ USD) 2020" id="y2020_rev_other" />
+            <label class="question_label">Revenues from clean cooking sales ($ USD) 2020</label><input type="number" min="0" step="0" class="num " placeholder="Revenues from clean cooking sales ($ USD) 2020" id="y2020_rev_stoves" />
+            <label class="question_label">Revenues from other product sales ($ USD) 2020</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from other product sales ($ USD) 2020" id="y2020_rev_prod_other" />
             <label class="question_label">Revenues from carbon credit sales ($ USD) 2020</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from carbon credit sales ($ USD) 2020" id="y2020_rev_carbon" />
             <label class="question_label">Revenues from other RBF, not carbon credit ($ USD) 2020</label>
-            <input type="number" min="0" step="0" class="num" placeholder="Revenues from other RBF, not carbon credit ($ USD) 2020" id="y2020_rev_rbf" /> <label class="question_label">Other revenues ($ USD) 2020</label>
-            <input type="number" min="0" step="0" class="num" placeholder="Other revenues ($ USD) 2020" id="y2020_rev_other" /> <label class="question_label">What are these revenues from?</label>
+            <input type="number" min="0" step="0" class="num" placeholder="Revenues from other RBF, not carbon credit ($ USD) 2020" id="y2020_rev_rbf" />
+            <label class="question_label">Other revenues ($ USD) 2020</label>
+            <input type="number" min="0" step="0" class="num" placeholder="Other revenues ($ USD) 2020" id="y2020_rev_other" />
+            <label class="question_label">What are these revenues from?</label>
             <input type="value" class="" placeholder="What are these revenues from?" id="y2020_rev_details" />
-            <label class="question_label">Were You EBITDA Postive in 2020?</label>
+            <label class="question_label">Total revenue 2020 ($ USD)</label><span id="y2020_rev" /></span>
+            <label class="question_label">Were You EBITDA Profitable in 2020?</label>
             <select id="y2020_ebitda">
-                <option value="no_response">EBITDA Postive?</option>
+                <option value="no_response">EBITDA Profitable?</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select>
-            <label class="question_label">Were You Net Postive in 2020?</label>
+            <label class="question_label">Were you net profitable in 2020?</label>
             <select id="y2020_np">
-                <option value="no_response">Net Postive?</option>
+                <option value="no_response">Net Profitable?</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select>
@@ -132,23 +134,24 @@
 
         <div id="section3" class="content_section">
             <div class="header"><h2>2021 Sale Revenue</h2></div>
-            <label class="question_label">Total revenue 2021 ($ USD)</label><input type="number" min="0" step="0" class="num" placeholder="Total revenue 2021 ($ USD)" id="y2021_rev" />
+           
             <label class="question_label">Revenues from clean cooking sales ($ USD) 2021</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from clean cooking sales ($ USD) 2021" id="y2021_rev_stoves" />
-            <label class="question_label">Revenues from other product sales ($ USD) 2021</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from other product sales ($ USD) 2021" id="y2021_rev_other" />
+            <label class="question_label">Revenues from other product sales ($ USD) 2021</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from other product sales ($ USD) 2021" id="y2021_rev_prod_other" />
             <label class="question_label">Revenues from carbon credit sales ($ USD) 2021</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from carbon credit sales ($ USD) 2021" id="y2021_rev_carbon" />
             <label class="question_label">Revenues from other RBF, not carbon credit ($ USD) 2021</label>
             <input type="number" min="0" step="0" class="num" placeholder="Revenues from other RBF, not carbon credit ($ USD) 2021" id="y2021_rev_rbf" /> <label class="question_label">Other revenues ($ USD) 2021</label>
             <input type="number" min="0" step="0" class="num" placeholder="Other revenues ($ USD) 2021" id="y2021_rev_other" />
             <label class="question_label">What are these revenues from?</label><input type="value" class="" placeholder="What are these revenues from?" id="y2021_rev_details">
-            <label class="question_label">Were You EBITDA Postive in 2021?</label>
+            <label class="question_label">Total revenue 2021 ($ USD)</label><span id="y2021_rev" /></span>
+            <label class="question_label">Were You EBITDA profitable in 2021?</label>
             <select id="y2021_ebitda">
-                <option value="no_response">EBITDA Postive?</option>
+                <option value="no_response">EBITDA Profitable?</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select>
-            <label class="question_label">Were You Net Postive in 2021?</label>
+            <label class="question_label">Were you net profitable in 2021?</label>
             <select id="y2021_np">
-                <option value="no_response">Net Postive?</option>
+                <option value="no_response">Net Profitable?</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select>
@@ -165,7 +168,7 @@
                   <th>Investment Type</th>
                   <th>Amount ($ USD)</th>
                   <th>Gender Lens?**</th>
-                  <th></th>
+                  <!-- <th style="display:none"></th> -->
                 </tr>
               </thead>
               <tbody>
@@ -190,49 +193,58 @@
                     <option value="equity">Equity</option>
                     <option value="grant">Grant</option>
                 </select></td>
-                  <td><input type="number" min="0" step="0" class="num" placeholder="Amount ($ USD)" id="invest_amount_1">
+                  <td><input type="number" min="0" step="0" class="num num_pos" placeholder="Amount ($ USD)" id="invest_amount_1">
                   </td>
                   <td><select id="invest_gender_1">
                     <option value="no_response">Gender Lens?</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select></td>
-                  <td></td>
+                  <td style="display:none"></td>
                 </tr>
               </tbody>
             </table>
 
             <button onclick="add_investor()" id="invest_btn">Add Additional Investment</button>
+            <div class="note" id="gender">
+                <p>**Gender Lens</p>
+                <p>To the best of your knowledge, please indicate whether the investment is specifically made to improve the lives of women. This may include either<br /> a) The investor used a gender lens as a eligibility or selection criterion to inform their investment decision;<br />or<br /> b) The investment will be used with the intent to address gender issues or promote gender equity.</p>
+                <p>A more detailed definition of gender lens can be found here: <a href="https://thegiin.org/gender-lens-investing-repository" target="_blank">https://thegiin.org/gender-lens-investing-repository</a></p></div>
+
 
             <div class="grid-container_investments">
                 <div class="grid-item"><label class="question_label">In 2021, how many new products or services did your company introduce, or significantly improve (not including aesthetic improvements)?</label></div>
-                <div class="grid-item"><input type="number" min="0" step="0" class="num invest_grid" placeholder="In 2021, how many new products or services did your company introduce, or significantly improve (not including aesthetic improvements)?" id="y2021_new_prod"></div>
+                <div class="grid-item"><input type="number" min="0" step="0" class="num invest_grid num_pos" placeholder="In 2021, how many new products or services did your company introduce, or significantly improve (not including aesthetic improvements)?" id="y2021_new_prod"></div>
             </div>
 
             <div class="grid-container_investments">
               <div class="grid-item"><label class="question_label">In 2020, how many new products or services did your company introduce, or significantly improve (not including aesthetic improvements)?</label></div>
-              <div class="grid-item"><input type="number" min="0" step="0" class="num invest_grid" placeholder="In 2020, how many new products or services did your company introduce, or significantly improve (not including aesthetic improvements)?" id="2020_new_prod"></div>
+              <div class="grid-item"><input type="number" min="0" step="0" class="num invest_grid num_pos" placeholder="In 2020, how many new products or services did your company introduce, or significantly improve (not including aesthetic improvements)?" id="2020_new_prod"></div>
             </div>
 
             <div class="grid-container_investments">
               <div class="grid-item"> <label class="question_label">What was your company's total expenditure on R&D in 2021? Please include direct cash expenditures + $USD value of R&D-related staff time.</label></div>
-              <div class="grid-item"> <input type="number" min="0" step="0" class="num invest_grid" placeholder="What was your company's total expenditure on R&D in 2021? Please include direct cash expenditures + $USD value of R&D-related staff time." id="y2021_rnd"></div>
+              <div class="grid-item"> <input type="number" min="0" step="0" class="num invest_grid num_pos" placeholder="What was your company's total expenditure on R&D in 2021? Please include direct cash expenditures + $USD value of R&D-related staff time." id="y2021_rnd"></div>
             </div>
 
             <div class="grid-container_investments">
               <div class="grid-item"><label class="question_label">What was your company's total expenditure on R&D in 2020? Please include direct cash expenditures + $USD value of R&D-related staff time.</label></div>
-              <div class="grid-item"><input type="number" min="0" step="0" class="num invest_grid" placeholder="What was your company's total expenditure on R&D in 2020? Please include direct cash expenditures + $USD value of R&D-related staff time." id="y2020_rnd"></div>
+              <div class="grid-item"><input type="number" min="0" step="0" class="num invest_grid num_pos" placeholder="What was your company's total expenditure on R&D in 2020? Please include direct cash expenditures + $USD value of R&D-related staff time." id="y2020_rnd"></div>
             </div>
             
             <div class="checkbox_section">
-                <label class="question_label">What is your company's primary source of R&D funding?</label><label class="rnd_source"><input type="checkbox" id="rnd_debt" value="debt" class="rnd_source checkboxes_options">Debt</label>
-                <label class="rnd_source"><input type="checkbox" id="rnd_equity" value="equity" class="rnd_source checkboxes_options">Equity</label>
-                <label class="rnd_source"><input type="checkbox" id="rnd_grant" value="grant" class="rnd_source checkboxes_options">Grant</label>
-                <label class="rnd_source"><input type="checkbox" id="rnd_qequity" value="qequity" class="rnd_source checkboxes_options">Quasi-equity/Convertible debt</label>
+                <label class="question_label">What is your company's primary source of R&D funding?
+                    <select id="rev_primary">
+                        <option value="no_response">Source of R&D Funds</option>
+                        <option value="Debt">Debt</option>
+                        <option value="Equity">Equity</option>
+                        <option value="Grant">Grant</option>
+                        <option value="Quasi-equity/Convertible debt">Quasi-equity/Convertible debt</option>
+                    </select>
             </div>
 
-            <label class="question_label">Please provide the total USD amount of capital raised from the start of the company to date<input type="number" min="0" step="0" class="req num" placeholder="Please provide the total USD amount of capital raised from the start of the company to date" id="capital_raised" data_id="section4"></label>
-            <label class="question_label">Of that amount of capital, how much* are grants?<input type="number" min="0" step="0" class="req num" placeholder="Of that amount of capital, how much* are grants?" id="capital_raised_grants" data_id="section4"></label>
+            <label class="question_label">Please provide the total USD amount of capital raised from the start of the company to date<input type="number" min="0" step="0" class="req num num_pos" placeholder="Please provide the total USD amount of capital raised from the start of the company to date" id="capital_raised" data_id="section4"></label>
+            <label class="question_label">Of that amount of capital, how much* are grants?<input type="number" min="0" step="0" class="req num num_pos" placeholder="Of that amount of capital, how much* are grants?" id="capital_raised_grants" data_id="section4"></label>
             <span class="error_note" id="error_grant_amount">Total amount of grants should be less than the total capital raised</span>
             <br><span class="note">*Helptext: Please provide $ amount rather than a percentage or the number of grants</span>
 
@@ -248,9 +260,9 @@
             </select></label>
             <div id="stove_sales_div">
             <div class="grid-container_stove_sales" id="grid-container_stove_sales">
-                <div class="grid-item"><label class="question_label">How many were sold directly to end customer?<br><input type="number" min="0" step="0" class="num req_52" placeholder="How many of those were sold directly to end customer?" id="y2021_n_stove_customer" value=""></label></div>
+                <div class="grid-item"><label class="question_label">How many were sold directly to end customer?<br><input type="number" min="0" step="0" class="num req_52 num_pos" placeholder="How many of those were sold directly to end customer?" id="y2021_n_stove_customer" value=""></label></div>
                 <div class="grid-item">            
-            <label class="question_label">How many were sold through a distributor?<br><input type="number" min="0" step="0" class="num req_52" placeholder="How many of these were sold through a distributor?" id="y2021_n_stove_distributor" value=""></label></div>
+            <label class="question_label">How many were sold through a distributor?<br><input type="number" min="0" step="0" class="num req_52 num_pos" placeholder="How many of these were sold through a distributor?" id="y2021_n_stove_distributor" value=""></label></div>
                 <div class="grid-item"><label class="question_label">Total Number Sold</label><br><span id="y2021_n_stove_sales" />0</span></div>
             </div>
    
@@ -401,8 +413,8 @@
     <option value='no'>No</option>
 </select></label>
 <div id="q_smartmeter">
-<label class="question_label">What quantity of fuel have you tracked in 2021?<input type="number" min="0" step="0" class="num req_81" placeholder="What quantity of fuel have you tracked in 2021?" id="fuel_quant" data_id="section6"></label>
-<label class="question_label">How many smart meters were used to track the quantity of fuel used?<input type="number" min="0" step="0" class="num req_81" placeholder="How many smart meters were used to track the quantity of fuel used?" id="smartmeter_quant" data_id="section6"></label></div>
+<label class="question_label">What quantity of fuel have you tracked in 2021?<input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="What quantity of fuel have you tracked in 2021?" id="fuel_quant" data_id="section6"></label>
+<label class="question_label">How many smart meters were used to track the quantity of fuel used?<input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="How many smart meters were used to track the quantity of fuel used?" id="smartmeter_quant" data_id="section6"></label></div>
 
         </div>
 
@@ -416,7 +428,7 @@
 </div>
 
 <button id="previous_section" class="navigation"></button>
-<button id="next_section" class="navigation">Go To Company Information</button>
+<button id="next_section" class="navigation">Go forward to Company Information</button>
 <br>
 <button id="check_errors" onclick="error_check()">Review Submission</button>
     </body>
@@ -425,7 +437,11 @@
     <script src="js/script.js"></script>
 
 
-    <script type="text/javascript">$(".yearpicker").yearpicker()</script>
+    <script type="text/javascript">$(".yearpicker").yearpicker(
+{
+    endYear:2021,
+
+})</script>
 
 
 </html>
