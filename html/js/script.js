@@ -451,6 +451,7 @@ for (var i = 0; i < el.length; i++) {
 }
 
 document.getElementById("check_errors").style.display="block"
+err_nav("error_check")
 }
   
 function err_nav(section){
