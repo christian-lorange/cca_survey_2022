@@ -1,11 +1,19 @@
 body {
     text-align: center;
     padding-bottom: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
 }
 
+input {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
 label.question_label {
-    display: inline;
-    padding-top: 20px;
+    display: block;
+    /*padding-top: 10px;*/
 }
 
 label.op_demographics, label.prod_demographics, label.rnd_source{
@@ -98,7 +106,7 @@ span.close {
 /*Start of investor table*/
 table.investor_table {
   width: 90vw !important;
-  background-color: #0280bf;
+/*  background-color: #0280bf;*/
   border-collapse: collapse;
   border-width: 2px;
   border-style: solid;
@@ -165,8 +173,9 @@ div#gender > p > a {
 .grid-container_stove_sales {
   display: grid;
   grid-template-columns: 33vw 33vw 33vw ;
-  padding: 10px;
-  background-color:#0280bf;
+  /*padding: 10px;*/
+  /*background-color:lightgrey;*/
+  border-style: solid;
   display: none;
 }
 
@@ -226,9 +235,10 @@ div#fuel_sales_div {
     display: none;
 }
 
-div#stove_sales_div {
+div#stove_sales_div, div#y2021_stove_sales_note {
     display: none;
 }
+
 /*End ost stove sales table*/
 
 /*Start of navigation*/
@@ -248,13 +258,18 @@ div#stove_sales_div {
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 3px;
-    background-color: #f99303;
+    background-color: #0280bf;
+    margin-top: 30px;
 }
 
 /*End of navigation*/
 
 
 /*Start of general*/
+img#header_img {
+    width: 30vw;
+}
+
 .note{
     font-style: italic;
     /*display: block;*/
@@ -293,9 +308,10 @@ label.question_label_ch > span::after {
 /*Employee tables*/
 .grid-container {
   display: grid;
-  grid-template-columns: 33vw 33vw 33vw;
-  background-color: #0280bf;
-  padding: 10px;
+  grid-template-columns: 33.3vw 33.3vw 33.3vw;
+  /*background-color: lightgrey;*/
+  border-style: solid;
+  /*padding: 10px;*/
 }
 
 div#q_smartmeter {
@@ -336,4 +352,12 @@ button.review_btns {
 .header > h2 {
     color: white;
     font-weight: bolder;
+}
+
+div#y2020_respond_note{
+    display: none;
+}
+
+div#y2020_section {
+    display: none;
 }

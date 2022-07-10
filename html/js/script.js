@@ -172,17 +172,21 @@ setTimeout(function() {
 function prep_fuel_sales_details(){
   sales_fuels_details = []
   els = document.getElementsByClassName("fuel_sales_types")
+  console.log(els)
   sales_table = document.getElementById("fuel_sales_details_body")
 
   var row = sales_table.insertRow(-1);
   // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
   cell1.innerHTML = "Fuel Type";
-  cell2.innerHTML = "Amound Sold in 2021";
+  cell2.innerHTML = "Amount Sold in 2021";
+  cell3.innerHTML = "Unit of Sales";
  
   cell1.style.width="32vw"
   cell2.style.width="32vw"
+  cell3.style.width="32vw"
 
 
   for (var i = 0; i < els.length; i++) {
@@ -194,6 +198,7 @@ function prep_fuel_sales_details(){
     // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
 
     cell2.classList.add("st_header");
 
@@ -207,8 +212,11 @@ function prep_fuel_sales_details(){
     cell1.innerHTML = els[i].labels[0].innerText;
     cell2.innerHTML = cell2_t;
 
+    cell3.innerHTML = '<select class="fuel_units"><option value="kilograms">kilograms</option><option value="pounds">pounds</option><option value="liters">liters</option><option value="kilo-watt-hours">kilo-watt-hours</option></select>'
+
     cell1.style.width="32vw"
     cell2.style.width="32vw"
+    cell3.style.width="32vw"
       }
 
 
@@ -342,11 +350,29 @@ document.getElementById("fuel_sales").addEventListener("change", function(){
 document.getElementById("stove_sales").addEventListener("change", function(){
   if(document.getElementById("stove_sales").value=="yes"){
     document.getElementById("stove_sales_div").style.display="block";
+    document.getElementById("y2021_stove_sales_note").style.display="none";
   }
   else {
     document.getElementById("stove_sales_div").style.display="none";
+    document.getElementById("y2021_stove_sales_note").style.display="block";
   }
 })
+
+
+// Start of 2020 section
+document.getElementById("y2020_respondq").addEventListener("change", function(){
+  if (document.getElementById("y2020_respondq").value =="yes"){
+    document.getElementById("y2020_section").style.display="none";
+    document.getElementById("y2020_respond_note").style.display="block";
+
+  }
+  else {
+    document.getElementById("y2020_section").style.display="block"
+    document.getElementById("y2020_respond_note").style.display="none";
+    }
+})
+
+// End of 2020 section
 
 
 // Start of revenue calculations

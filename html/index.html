@@ -13,11 +13,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="js/yearpicker.js" async></script>
 
-        <link rel="stylesheet" href="https://cleancooking.org/wp-content/themes/cca/style.css" />
+        <!-- <link rel="stylesheet" href="https://cleancooking.org/wp-content/themes/cca/style.css" /> -->
         <link rel="stylesheet" href="css/style.css" />
     </head>
 
     <body>
+      <div id="header"><img id="header_img" src="img/cca_logo.png"></div>
         <div id="login" class="content_section">
             <div class="header"><h2>2022 CCA Survey</h2></div>
             <label class="question_label">Name of Business<input type="value" class="req" placeholder="Name of business" id="business_name" data_id="login"/></label> <label class="question_label">Email of Individual Beginning this Survey
@@ -45,29 +46,29 @@
 
             <div class="grid-container">
               <div class="grid-item">
-            <label class="question_label">Number of full-time male employees
+            <label class="question_label">Number of full-time male employees<br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of full-time male employees" id="n_ft_male" value="" data_id="section1"/></label></div>
-              <div class="grid-item"><label class="question_label">Number of part-time male employees
+              <div class="grid-item"><label class="question_label">Number of part-time male employees<br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of part-time male employees" id="n_pt_male" value="" data_id="section1"/></label></div>
-              <div class="grid-item"><label class="question_label">Total Number of employees - male<br><span id="n_male"/>0</span></label></div>
+              <div class="grid-item"><label class="question_label">Total number of employees - male<br><span id="n_male"/>0</span></label></div>
             </div>
 <br>
             <div class="grid-container">
               <div class="grid-item">
- <label class="question_label">Number of full-time female employees
+ <label class="question_label">Number of full-time female employees<br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of full-time female employees" id="n_ft_female" value="" data_id="section1"/> </label></div>
-              <div class="grid-item"><label class="question_label">Number of part-time female employees
+              <div class="grid-item"><label class="question_label">Number of part-time female employees<br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of part-time female employees" id="n_pt_female" value="" data_id="section1"/></label></div>
-              <div class="grid-item"><label class="question_label">Total Number of employees - female
+              <div class="grid-item"><label class="question_label">Total number of employees - female
             <br><span id="n_female" />0</span></label></div>
             </div>
 <br>
         <div class="grid-container">
-          <div class="grid-item"><label class="question_label">Number of full-time gender unknown/other/non-binary employees
+          <div class="grid-item"><label class="question_label">Number of full-time employees (gender unknown, other, or non-binary)<br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of full-time gender unknown/other/non-binary employees" id="n_pt_other" value="" data_id="section1"/> </label></div>
-          <div class="grid-item"> <label class="question_label">Number of part-time gender unknown/other/non-binary employees
+          <div class="grid-item"> <label class="question_label">Number of part-time employees (gender unknown, other, or non-binary)<br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of part-time gender unknown/other/non-binary employees" id="n_ft_other" value="" data_id="section1"/></label></div>
-          <div class="grid-item"><label class="question_label">Total Number of employees - gender unknown/other/non-binary
+          <div class="grid-item"><label class="question_label">Total number of employees - gender unknown, other, or non-binary
             <br><span id="n_other" />0</span></label></div>
         </div>
 
@@ -77,7 +78,7 @@
             <br><input type="value" class="req num num_pos" placeholder="Number of male employees in management role" id="n_male_man" data_id="section1"/></label> </div>
           <div class="grid-item"><label class="question_label">Number of female employees in management role
            <br> <input type="value" class="req num num_pos" placeholder="Number of female employees in management role" id="n_female_man" data_id="section1"/></label></div>
-          <div class="grid-item"> <label class="question_label">Number of gender unknown/other/non-binary employees in management role
+          <div class="grid-item"> <label class="question_label">Number of employees (gender unknown, other, or non-binary) in management role
             <br><input type="value" class="req num num_pos" placeholder="Number of gender unknown/other/non-binary employees in management role" id="n_other_man" data_id="section1"/></label></div>
           </div>
 
@@ -107,7 +108,15 @@
 
         <div id="section2" class="content_section">
             <div class="header"><h2>2020 Sales Revenues</h2></div>
-            <h3>INTERNAL NOTE - THIS SECTION WILL ONLY SHOW FOR GROUPS WHO DID NOT SUBMIT LAST YEAR</h3>
+            <label class="question_label">Did you complete the survey last year?</label>
+            <select id="y2020_respondq">
+                <option value="no_response"></option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="unknown">Not sure</option>
+            </select>
+            <div class="note" id="y2020_respond_note">Please proceed to the next section</div>
+            <div id="y2020_section">
             <label class="question_label">Revenues from clean cooking sales ($ USD) 2020</label><input type="number" min="0" step="0" class="num " placeholder="Revenues from clean cooking sales ($ USD) 2020" id="y2020_rev_stoves" />
             <label class="question_label">Revenues from other product sales ($ USD) 2020</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from other product sales ($ USD) 2020" id="y2020_rev_prod_other" />
             <label class="question_label">Revenues from carbon credit sales ($ USD) 2020</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from carbon credit sales ($ USD) 2020" id="y2020_rev_carbon" />
@@ -130,6 +139,7 @@
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select>
+          </div>
         </div>
 
         <div id="section3" class="content_section">
@@ -258,12 +268,13 @@
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select></label>
+            <div class="note" id="y2021_stove_sales_note">Please proceed to the next section</div>
             <div id="stove_sales_div">
             <div class="grid-container_stove_sales" id="grid-container_stove_sales">
                 <div class="grid-item"><label class="question_label">How many were sold directly to end customer?<br><input type="number" min="0" step="0" class="num req_52 num_pos" placeholder="How many of those were sold directly to end customer?" id="y2021_n_stove_customer" value=""></label></div>
                 <div class="grid-item">            
             <label class="question_label">How many were sold through a distributor?<br><input type="number" min="0" step="0" class="num req_52 num_pos" placeholder="How many of these were sold through a distributor?" id="y2021_n_stove_distributor" value=""></label></div>
-                <div class="grid-item"><label class="question_label">Total Number Sold</label><br><span id="y2021_n_stove_sales" />0</span></div>
+                <div class="grid-item"><label class="question_label">Total Number Sold</label><span id="y2021_n_stove_sales" />0</span></div>
             </div>
    
 
@@ -413,7 +424,12 @@
     <option value='no'>No</option>
 </select></label>
 <div id="q_smartmeter">
-<label class="question_label">What quantity of fuel have you tracked in 2021?<input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="What quantity of fuel have you tracked in 2021?" id="fuel_quant" data_id="section6"></label>
+<label class="question_label">What quantity of fuel have you tracked in 2021?<input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="What quantity of fuel have you tracked in 2021?" id="fuel_quant" data_id="section6"><select id="smartmeter_fuel_units" class="fuel_units">
+    <option value="kilograms">kilograms</option>
+    <option value="pounds">pounds</option>
+    <option value="liters">liters</option>
+    <option value="kilo-watt-hours">kilo-watt-hours</option>
+</select></label>
 <label class="question_label">How many smart meters were used to track the quantity of fuel used?<input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="How many smart meters were used to track the quantity of fuel used?" id="smartmeter_quant" data_id="section6"></label></div>
 
         </div>
