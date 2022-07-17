@@ -81,6 +81,11 @@
           <div class="grid-item"> <label class="question_label">Number of employees (gender unknown, other, or non-binary) in management role
             <br><input type="value" class="req num num_pos" placeholder="Number of gender unknown/other/non-binary employees in management role" id="n_other_man" data_id="section1"/></label></div>
           </div>
+          <div class="note" id="gender">
+            <p><b>Management:</b> Supervises and/or has authority over the job functions of a designated group of people or coordinates the functions of a specific activity within an entity. Oversight can be project, financial, facilities or operations management.</p>
+
+            <p><b>Non-management:</b> Does not have supervisory duties or authority.</p>
+          </div>
 
  <label class="question_label">Year of incorporation</label>
             <input type="text" class="yearpicker" placeholder="Year of incorporation" id="year_incorp" />
@@ -97,6 +102,7 @@
                 <label class="prod_demographics"><input type="checkbox" id="manu_cookstoves" value="manu_cookstoves" class="prod_demographics checkboxes_options" />Manufacturing/Production of Cookstoves</label>
                 <label class="prod_demographics"><input type="checkbox" id="manu_fuels" value="manu_fuels" class="prod_demographics checkboxes_options" />Manufacturing/Production of Fuels</label>
                 <label class="prod_demographics"><input type="checkbox" id="dist" value="dist" class="prod_demographics checkboxes_options" />Distribution</label>
+                <label class="prod_demographics"><input type="checkbox" id="dist" value="smart_sales" class="prod_demographics checkboxes_options" />Smart-Meter Sales</label>
                 <label class="prod_demographics"><input type="checkbox" id="financing" value="financing" class="prod_demographics checkboxes_options" />Consumer Financing</label>
                 <label class="prod_demographics"><input type="checkbox" id="retail_mark" value="retail_mark" class="prod_demographics checkboxes_options" />Retail Marketing</label>
                 <label class="prod_demographics"><input type="checkbox" id="after_sales" value="after_sales" class="prod_demographics checkboxes_options" />After Sales Service</label>
@@ -107,7 +113,7 @@
         </div>
 
         <div id="section2" class="content_section">
-            <div class="header"><h2>2020 Sales Revenues</h2></div>
+            <div class="header"><h2>2020 Financials</h2></div>
             <label class="question_label">Did you complete the survey last year?</label>
             <select id="y2020_respondq">
                 <option value="no_response"></option>
@@ -143,7 +149,7 @@
         </div>
 
         <div id="section3" class="content_section">
-            <div class="header"><h2>2021 Sale Revenue</h2></div>
+            <div class="header"><h2>2021 Financials</h2></div>
            
             <label class="question_label">Revenues from clean cooking sales ($ USD) 2021</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from clean cooking sales ($ USD) 2021" id="y2021_rev_stoves" />
             <label class="question_label">Revenues from other product sales ($ USD) 2021</label><input type="number" min="0" step="0" class="num" placeholder="Revenues from other product sales ($ USD) 2021" id="y2021_rev_prod_other" />
@@ -168,7 +174,7 @@
         </div>
 
         <div id="section4" class="content_section">
-            <div class="header"><h2>Investments in 2020 and 2021</h2></div>
+            <div class="header"><h2>Capital Raised in 2020 and 2021</h2></div>
             <table id="investor_table" class="investor_table">
               <thead>
                 <tr>
@@ -249,6 +255,7 @@
                         <option value="Debt">Debt</option>
                         <option value="Equity">Equity</option>
                         <option value="Grant">Grant</option>
+                        <option value="Self">Self-Funded (revenues)</option>
                         <option value="Quasi-equity/Convertible debt">Quasi-equity/Convertible debt</option>
                     </select>
             </div>
@@ -310,11 +317,11 @@
             </label>
             <label class="question_label_ch">
                 <input id="biogas" type="checkbox" value="biogas" class="stove_sales_types"/>
-                Biogas stove
+                Biogas stove and associated equipment 
             </label>
             <label class="question_label_ch">
                 <input id="lpg" type="checkbox" value="lpg" class="stove_sales_types"/>
-                LPG/cooking gas stove
+                LPG/cooking gas stove and associated equipment
             </label>
             <label class="question_label_ch">
                 <input id="manu_solid_fuel" type="checkbox" value="manu_solid_fuel" class="stove_sales_types"/>
@@ -375,7 +382,7 @@
   <label class='question_label'>What type of Fuels did you sell in 2021? Select
   all that apply.</label>
   <label class='question_label_fuel'><input class="fuel_sales_types" type='checkbox' id='alc'
-  value='alc' />Alocohol/ethanol</label>
+  value='alc' />Alcohol/ethanol</label>
   <label class='question_label_fuel'><input class="fuel_sales_types" type='checkbox' id='gas'
   value='gas' />Gasoline/diesel (not in generator)</label>
   <label class='question_label_fuel'><input class="fuel_sales_types" type='checkbox' id='kero'
