@@ -319,6 +319,24 @@ div#q_smartmeter {
 }
 
 
+/*Start of investor table*/
+table#smartmeter_details {
+  width: auto !important;
+/*  background-color: #0280bf;*/
+  border-collapse: collapse;
+  border-width: 2px;
+  border-style: solid;
+  color: #000000;
+  margin:auto;
+}
+
+table#smartmeter_details td, table#smartmeter_details th {
+  border-width: 2px;
+  border-style: solid;
+  padding: 3px;
+}
+
+
 button#check_errors {
     font-weight: 900;
     font-size: 16px;

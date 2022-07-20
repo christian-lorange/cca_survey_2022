@@ -258,8 +258,9 @@ setTimeout(function() {
     document.getElementById("previous_section").style.display="none"
   }
 
-var section_tags = ['login','section1','section2','section3','section4','section5','section6','error_check']
-var section_text = ['Login Information','Company Information','2020 Sales Revenue','2021 Sales Revenue','Investments','Cookstove Sales','Fuel Sales','Review Information']
+var section_tags = ['login','section1','section2','section3','section4','section5','section6','section7','error_check']
+var section_text = ['Login Information','Company Information','2020 Financials','2021 Financials','Investments','Cookstove Sales','Fuel Sales','Smart Meter Sales','Review Information']
+
 
 document.getElementById("previous_section").addEventListener("click",function(){navigation("prev")})
 document.getElementById("next_section").addEventListener("click",function(){navigation("next")})
@@ -267,12 +268,13 @@ document.getElementById("next_section").addEventListener("click",function(){navi
 function navigation(direction){
   index = section_text.indexOf(document.getElementById("next_section").innerHTML.replace("Go forward to ",""))
   if (index==-1){
-    index=8
+    index=9
   }
-
   for (var i = 0; i < section_tags.length; i++) {
     document.getElementById(section_tags[i]).style.display="none"
   }
+
+  setTimeout(function() {
   if (direction=="next"){
     document.getElementById("previous_section").innerHTML="Go back to "+section_text[index-1]
     document.getElementById("next_section").innerHTML="Go forward to "+section_text[index+1]
@@ -302,8 +304,9 @@ function navigation(direction){
   else {
     document.getElementById("next_section").style.display=""
   }
+}, 10);
 
-  if(index == 7){
+  if(index == 8 && direction=="next"){
     error_check()
   }
 }
@@ -336,6 +339,13 @@ for (var i = 0; i < els.length; i++) {
         }
         else { document.getElementById("q_smartmeter").style.display="none"}
       });
+
+
+ function add_smartmeter (){
+  unique = makeid(4) 
+  document.getElementById("smartmeter_details").insertRow(-1).innerHTML = '<tr><td><input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="What quantity of fuel have you tracked in 2021?" id="fuel_quant_"'+unique+' data_id="section7"></td><td><select id="smartmeter_fuel_units_'+unique+' class="fuel_units"><option value="kilograms">kilograms</option><option value="pounds">pounds</option><option value="liters">liters</option><option value="kilo-watt-hours">kilo-watt-hours</option></select></td><td><input type="button" value="Delete Row" onclick="SomeDeleteRowFunction()"></td></tr>';
+
+ }
 
 
 document.getElementById("fuel_sales").addEventListener("change", function(){
@@ -484,8 +494,8 @@ err_nav("error_check")
 }
   
 function err_nav(section){
-  var section_tags = ['login','section1','section2','section3','section4','section5','section6','error_check']
-  var section_text = ['Login Information','Company Information','2020 Sales Revenue','2021 Sales Revenue','Investments','Cookstove Sales','Fuel Sales','Review Information']
+  var section_tags = ['login','section1','section2','section3','section4','section5','section6','section7','error_check']
+  var section_text = ['Login Information','Company Information','2020 Financials','2021 Financials','Investments','Cookstove Sales','Fuel Sales','Smart Meter Sales','Review Information']
   index = section_tags.indexOf(section)
 
   for (var i = 0; i < section_tags.length; i++) {

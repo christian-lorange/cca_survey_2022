@@ -21,15 +21,15 @@
       <div id="header"><img id="header_img" src="img/cca_logo.png"></div>
         <div id="login" class="content_section">
             <div class="header"><h2>2022 CCA Survey</h2></div>
-            <label class="question_label">Name of Business<input type="value" class="req" placeholder="Name of business" id="business_name" data_id="login"/></label> <label class="question_label">Email of Individual Beginning this Survey
+            <label class="question_label">Name of Business<span style="color: red"><sup>*</sup></span><input type="value" class="req" placeholder="Name of business" id="business_name" data_id="login"/></label> <label class="question_label">Email of Individual Beginning this Survey<span style="color: red"><sup>*</sup></span>
             <input type="value" class="req" placeholder="Email" id="contact_email" data_id="login" /></label>
             <br><span class="note">We will use this email to send you the access token associated with this survey if you forget it.</span>
-            <label class="question_label">Respondent’s Name<input type="value" class="req" placeholder="Contact" id="contact_name" data_id="login"/></label>
+            <label class="question_label">Respondent’s Name<span style="color: red"><sup>*</sup></span><input type="value" class="req" placeholder="Contact" id="contact_name" data_id="login"/></label>
         </div>
 
         <div id="section1" class="content_section">
             <div class="header"><h2>Company Information</h2></div>
-            <label class="question_label">Primary Country of Operation</label><input id="country_primary" type="text" placeholder="Primary Country of Operation" />
+            <label class="question_label">Primary Country of Operation<span style="color: red"><sup>*</sup></span><input id="country_primary" type="text" placeholder="Primary Country of Operation" class="req" data_id="section1"/></label>
 
             <label class="question_label">Type of Company</label>
             <select>
@@ -46,27 +46,27 @@
 
             <div class="grid-container">
               <div class="grid-item">
-            <label class="question_label">Number of full-time male employees<br>
+            <label class="question_label">Number of full-time male employees<span style="color: red"><sup>*</sup></span><br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of full-time male employees" id="n_ft_male" value="" data_id="section1"/></label></div>
-              <div class="grid-item"><label class="question_label">Number of part-time male employees<br>
+              <div class="grid-item"><label class="question_label">Number of part-time male employees<span style="color: red"><sup>*</sup></span><br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of part-time male employees" id="n_pt_male" value="" data_id="section1"/></label></div>
               <div class="grid-item"><label class="question_label">Total number of employees - male<br><span id="n_male"/>0</span></label></div>
             </div>
 <br>
             <div class="grid-container">
               <div class="grid-item">
- <label class="question_label">Number of full-time female employees<br>
+ <label class="question_label">Number of full-time female employees<span style="color: red"><sup>*</sup></span><br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of full-time female employees" id="n_ft_female" value="" data_id="section1"/> </label></div>
-              <div class="grid-item"><label class="question_label">Number of part-time female employees<br>
+              <div class="grid-item"><label class="question_label">Number of part-time female employees<span style="color: red"><sup>*</sup></span><br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of part-time female employees" id="n_pt_female" value="" data_id="section1"/></label></div>
               <div class="grid-item"><label class="question_label">Total number of employees - female
             <br><span id="n_female" />0</span></label></div>
             </div>
 <br>
         <div class="grid-container">
-          <div class="grid-item"><label class="question_label">Number of full-time employees (gender unknown, other, or non-binary)<br>
+          <div class="grid-item"><label class="question_label">Number of full-time employees (gender unknown, other, or non-binary)<span style="color: red"><sup>*</sup></span><br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of full-time gender unknown/other/non-binary employees" id="n_pt_other" value="" data_id="section1"/> </label></div>
-          <div class="grid-item"> <label class="question_label">Number of part-time employees (gender unknown, other, or non-binary)<br>
+          <div class="grid-item"> <label class="question_label">Number of part-time employees (gender unknown, other, or non-binary)<span style="color: red"><sup>*</sup></span><br>
             <input type="value" class="req num emp_num num_pos" placeholder="Number of part-time gender unknown/other/non-binary employees" id="n_ft_other" value="" data_id="section1"/></label></div>
           <div class="grid-item"><label class="question_label">Total number of employees - gender unknown, other, or non-binary
             <br><span id="n_other" />0</span></label></div>
@@ -74,11 +74,11 @@
 
 <br>
         <div class="grid-container">
-          <div class="grid-item"><label class="question_label">Number of male employees in management role
+          <div class="grid-item"><label class="question_label">Number of male employees in management role<span style="color: red"><sup>*</sup></span>
             <br><input type="value" class="req num num_pos" placeholder="Number of male employees in management role" id="n_male_man" data_id="section1"/></label> </div>
-          <div class="grid-item"><label class="question_label">Number of female employees in management role
+          <div class="grid-item"><label class="question_label">Number of female employees in management role<span style="color: red"><sup>*</sup></span>
            <br> <input type="value" class="req num num_pos" placeholder="Number of female employees in management role" id="n_female_man" data_id="section1"/></label></div>
-          <div class="grid-item"> <label class="question_label">Number of employees (gender unknown, other, or non-binary) in management role
+          <div class="grid-item"> <label class="question_label">Number of employees (gender unknown, other, or non-binary) in management role<span style="color: red"><sup>*</sup></span>
             <br><input type="value" class="req num num_pos" placeholder="Number of gender unknown/other/non-binary employees in management role" id="n_other_man" data_id="section1"/></label></div>
           </div>
           <div class="note" id="gender">
@@ -260,16 +260,16 @@
                     </select>
             </div>
 
-            <label class="question_label">Please provide the total USD amount of capital raised from the start of the company to date<input type="number" min="0" step="0" class="req num num_pos" placeholder="Please provide the total USD amount of capital raised from the start of the company to date" id="capital_raised" data_id="section4"></label>
-            <label class="question_label">Of that amount of capital, how much* are grants?<input type="number" min="0" step="0" class="req num num_pos" placeholder="Of that amount of capital, how much* are grants?" id="capital_raised_grants" data_id="section4"></label>
+            <label class="question_label">Please provide the total USD amount of capital raised from the start of the company to date<span style="color: red"><sup>*</sup></span><input type="number" min="0" step="0" class="req num num_pos" placeholder="Please provide the total USD amount of capital raised from the start of the company to date" id="capital_raised" data_id="section4"></label>
+            <label class="question_label">Of that amount of capital, how much*** are grants?<span style="color: red"><sup>*</sup></span><input type="number" min="0" step="0" class="req num num_pos" placeholder="Of that amount of capital, how much* are grants?" id="capital_raised_grants" data_id="section4"></label>
             <span class="error_note" id="error_grant_amount">Total amount of grants should be less than the total capital raised</span>
-            <br><span class="note">*Helptext: Please provide $ amount rather than a percentage or the number of grants</span>
+            <br><span class="note">***Helptext: Please provide $ amount rather than a percentage or the number of grants</span>
 
         </div>
 
         <div id="section5" class="content_section">
             <div class="header"><h2>Cookstove Sales</h2></div>
-            <label class="question_label">Did you Sell Cookstoves in 2021?
+            <label class="question_label">Did you Sell Cookstoves in 2021?<span style="color: red"><sup>*</sup></span>
             <select class="req" id="stove_sales" data_id="section5">
                 <option value="no_response">Stove Sales?</option>
                 <option value="yes">Yes</option>
@@ -278,9 +278,9 @@
             <div class="note" id="y2021_stove_sales_note">Please proceed to the next section</div>
             <div id="stove_sales_div">
             <div class="grid-container_stove_sales" id="grid-container_stove_sales">
-                <div class="grid-item"><label class="question_label">How many were sold directly to end customer?<br><input type="number" min="0" step="0" class="num req_52 num_pos" placeholder="How many of those were sold directly to end customer?" id="y2021_n_stove_customer" value=""></label></div>
+                <div class="grid-item"><label class="question_label">How many were sold directly to end customer?<span style="color: red"><sup>*</sup></span><br><input type="number" min="0" step="0" class="num req_52 num_pos" placeholder="How many of those were sold directly to end customer?" id="y2021_n_stove_customer" value=""></label></div>
                 <div class="grid-item">            
-            <label class="question_label">How many were sold through a distributor?<br><input type="number" min="0" step="0" class="num req_52 num_pos" placeholder="How many of these were sold through a distributor?" id="y2021_n_stove_distributor" value=""></label></div>
+            <label class="question_label">How many were sold through a distributor?<span style="color: red"><sup>*</sup></span><span style="color: red"><sup>*</sup></span><br><input type="number" min="0" step="0" class="num req_52 num_pos" placeholder="How many of these were sold through a distributor?" id="y2021_n_stove_distributor" value=""></label></div>
                 <div class="grid-item"><label class="question_label">Total Number Sold</label><span id="y2021_n_stove_sales" />0</span></div>
             </div>
    
@@ -292,7 +292,7 @@
 
         <div class="checkbox_section">
           <label class="question_label req_48">
-                What type of Cookstoves did you sell in 2021? Select all that apply.
+                What type of Cookstoves did you sell in 2021? Select all that apply.<span style="color: red"><sup>*</sup></span>
             </label>
             <br />
             <label class="question_label_ch">
@@ -369,7 +369,7 @@
 <div id="section6" class="content_section">
 <div class="header"><h2>Fuel Sales</h2></div>
 
-            <label class="question_label">Did you Sell fuels in 2021?
+            <label class="question_label">Did you Sell fuels in 2021?<span style="color: red"><sup>*</sup></span>
 <select class="req" id="fuel_sales" data_id="section6">
     <option value="no_response">Fuel Sales?</option>
     <option value="yes">Yes</option>
@@ -424,22 +424,47 @@
 </table>
 </div>
 
-<label class='question_label'>Are you tracking stove/ fuel usage via smart meters?
-<select class='req' id='smartmeter' data_id="section6">
-    <option value='0'>Do you use SmartMeters?</option>
+        </div>
+
+
+<div id="section7" class="content_section">
+<div class="header"><h2>Smart Meter Sales</h2></div>
+<label class='question_label'>Are you tracking stove/ fuel usage via smart meters?<span style="color: red"><sup>*</sup></span>
+<select class='req' id='smartmeter' data_id="section7">
+    <option value='no_response'>Do you use SmartMeters?</option>
     <option value='yes'>Yes</option>
     <option value='no'>No</option>
 </select></label>
 <div id="q_smartmeter">
-<label class="question_label">What quantity of fuel have you tracked in 2021?<input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="What quantity of fuel have you tracked in 2021?" id="fuel_quant" data_id="section6"><select id="smartmeter_fuel_units" class="fuel_units">
+<label class="question_label">What quantity of fuel have you tracked in 2021?<span style="color: red"><sup>*</sup></span>
+
+<table id="smartmeter_details" class="fuel_sales_details">
+<!--                 <thead>
+                    <tr>
+                      <th class="st_header">Stove Type</th>
+                      <th class="st_header">Country</th>
+                      <th class="st_header">Stove Sales</th>
+                    </tr>
+                </thead> -->
+<tbody id="smartmeter_details_body">
+<tr><td><input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="What quantity of fuel have you tracked in 2021?" id="fuel_quant" data_id="section7"></td><td><select id="smartmeter_fuel_units" class="fuel_units"><option value="kilograms">kilograms</option><option value="pounds">pounds</option><option value="liters">liters</option><option value="kilo-watt-hours">kilo-watt-hours</option></select></td><td><input type="button" value="Delete Row" onclick="SomeDeleteRowFunction()"></td></tr>';
+
+</tbody>
+</table>
+
+            <button onclick="add_smartmeter()" id="invest_btn">Add Additional Smart Meter Data</button>
+
+
+  <!-- <input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="What quantity of fuel have you tracked in 2021?" id="fuel_quant" data_id="section7"><select id="smartmeter_fuel_units" class="fuel_units">
     <option value="kilograms">kilograms</option>
     <option value="pounds">pounds</option>
     <option value="liters">liters</option>
     <option value="kilo-watt-hours">kilo-watt-hours</option>
-</select></label>
-<label class="question_label">How many smart meters were used to track the quantity of fuel used?<input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="How many smart meters were used to track the quantity of fuel used?" id="smartmeter_quant" data_id="section6"></label></div>
+</select> -->
+</label>
+<label class="question_label">How many smart meters were used to track the quantity of fuel used?<span style="color: red"><sup>*</sup></span><input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="How many smart meters were used to track the quantity of fuel used?" id="smartmeter_quant" data_id="section7"></label></div>
 
-        </div>
+</div>
 
 
 <div id="error_check" class="content_section">
@@ -454,6 +479,8 @@
 <button id="next_section" class="navigation">Go forward to Company Information</button>
 <br>
 <button id="check_errors" onclick="error_check()">Review Submission</button>
+
+<p>Required questions are denoted with<span style="color: red"><sup>*</sup></span></p>
     </body>
 
     <script src="js/countries.js"></script>
