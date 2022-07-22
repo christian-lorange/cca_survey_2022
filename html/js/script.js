@@ -9,11 +9,14 @@ function makeid(length) {
    }
    return result;
 }
-
+let invest_count=1
 // Add table row to investors table
-function add_investor() {   
-unique = makeid(4) 
-document.getElementById("investor_table").insertRow(-1).innerHTML = '<tr><td><input type="value" class="" placeholder="Investor" id="invest_name_'+unique+'"></td><td><input type="text" class="yearpicker_invest" placeholder="Year (yyyy)" id="invest_year_'+unique+'"></td><td><select id="invest_source_'+unique+'"><option value="0">Investor Type</option><option value="crowd">Crowdfunding Platforms</option><option value="multilateral">Multilateral or Bilateral Development Financial Institutions</option><option value="government">Government</option><option value="foundation">Foundation</option><option value="pvt_equity">Private Equity</option><option value="angel">Angel Investors</option><option value="impact">Impact Fund</option><option value="other_pvt">Other Private Investors</option></select></td><td><select id="invest_type_'+unique+'"><option value="0">Investment Type</option><option value="debt">Debt</option><option value="equity">Equity</option><option value="grant">Grant</option></select></td><td><input type="number" min="0" step="0" class="num num_pos" placeholder="Amount ($ USD)" id="invest_amount_'+unique+'"></td><td><select id="invest_gender_'+unique+'"><option value="0">Gender Lens?</option><option value="yes">Yes</option><option value="no">No</option></select></td><td><input type="button" value="Delete Row" onclick="SomeDeleteRowFunction()"></td></tr>';
+function add_investor(x) {   
+// unique = makeid(4)
+if(x!==""){ 
+invest_count++}
+else {invest_count=x}
+document.getElementById("investor_table").insertRow(-1).innerHTML = '<tr><td><input type="value" class="" placeholder="Investor" id="invest_name_'+invest_count+'"></td><td><input type="text" class="yearpicker_invest" placeholder="Year (yyyy)" id="invest_year_'+invest_count+'"></td><td><select id="invest_source_'+invest_count+'"><option value="0">Investor Type</option><option value="crowd">Crowdfunding Platforms</option><option value="multilateral">Multilateral or Bilateral Development Financial Institutions</option><option value="government">Government</option><option value="foundation">Foundation</option><option value="pvt_equity">Private Equity</option><option value="angel">Angel Investors</option><option value="impact">Impact Fund</option><option value="other_pvt">Other Private Investors</option></select></td><td><select id="invest_type_'+invest_count+'"><option value="0">Investment Type</option><option value="debt">Debt</option><option value="equity">Equity</option><option value="grant">Grant</option></select></td><td><input type="number" min="0" step="0" class="num num_pos" placeholder="Amount ($ USD)" id="invest_amount_'+invest_count+'"></td><td><select id="invest_gender_'+invest_count+'"><option value="0">Gender Lens?</option><option value="yes">Yes</option><option value="no">No</option></select></td><td><input type="button" value="Delete Row" onclick="SomeDeleteRowFunction()"></td></tr>';
 $(".yearpicker_invest").yearpicker({
         startYear: 2020,
         endYear:2021,
@@ -172,7 +175,7 @@ setTimeout(function() {
 function prep_fuel_sales_details(){
   sales_fuels_details = []
   els = document.getElementsByClassName("fuel_sales_types")
-  console.log(els)
+  //console.log(els)
   sales_table = document.getElementById("fuel_sales_details_body")
 
   var row = sales_table.insertRow(-1);
@@ -205,14 +208,14 @@ function prep_fuel_sales_details(){
     cell2.innerHTML = ""
   
 
-    cell2_t = ('<input type="number" min="0" class="fuel_sales_ctr" id=fuel_sales_'+els[i].id+'" style="margin:auto;width:20vw">')
+    cell2_t = ('<input type="number" min="0" class="fuel_sales_ctr" id="fuel_sales_'+els[i].id+'" style="margin:auto;width:20vw">')
 
 
     // Add some text to the new cells:
     cell1.innerHTML = els[i].labels[0].innerText;
     cell2.innerHTML = cell2_t;
 
-    cell3.innerHTML = '<select class="fuel_units"><option value="kilograms">kilograms</option><option value="pounds">pounds</option><option value="liters">liters</option><option value="kilo-watt-hours">kilo-watt-hours</option></select>'
+    cell3.innerHTML = '<select id=fuel_sales_units_'+els[i].id+' class="fuel_units"><option value="kilograms">kilograms</option><option value="pounds">pounds</option><option value="liters">liters</option><option value="kilo-watt-hours">kilo-watt-hours</option></select>'
 
     cell1.style.width="32vw"
     cell2.style.width="32vw"
@@ -243,7 +246,7 @@ setTimeout(function() {
  els2 = document.getElementsByClassName("fuel_sales_types")
   for (var i = 0; i < els2.length; i++) {
     els2[i].addEventListener("change", 
-      function(){fuel_sales ();console.log("this happened")
+      function(){fuel_sales ()
       });
   }
     fuel_sales();
@@ -334,31 +337,51 @@ for (var i = 0; i < els.length; i++) {
 
  document.getElementById("smartmeter").addEventListener("change", 
       function(){
-        if (document.getElementById("smartmeter").value=="yes"){
-          document.getElementById("q_smartmeter").style.display="block"
-        }
-        else { document.getElementById("q_smartmeter").style.display="none"}
+        run_updates()
       });
 
-
- function add_smartmeter (){
-  unique = makeid(4) 
-  document.getElementById("smartmeter_details").insertRow(-1).innerHTML = '<tr><td><input type="number" min="0" step="0" class="num req_81 num_pos" placeholder="What quantity of fuel have you tracked in 2021?" id="fuel_quant_"'+unique+' data_id="section7"></td><td><select id="smartmeter_fuel_units_'+unique+' class="fuel_units"><option value="kilograms">kilograms</option><option value="pounds">pounds</option><option value="liters">liters</option><option value="kilo-watt-hours">kilo-watt-hours</option></select></td><td><input type="button" value="Delete Row" onclick="SomeDeleteRowFunction()"></td></tr>';
+let metercount=1
+ function add_smartmeter (x){
+  // unique = makeid(4) 
+    if(x!==""){ 
+  metercount++}
+  else {metercount=x}
+  
+  document.getElementById("smartmeter_details").insertRow(-1).innerHTML = '<tr><td><input type="number" min="0" step="0" class="num num_pos" placeholder="What quantity of fuel have you tracked in 2021?" id="fuel_quant_'+metercount+'" data_id="section7"></td><td><select id="smartmeter_fuel_units_'+metercount+'" class="fuel_units"><option value="kilograms">kilograms</option><option value="pounds">pounds</option><option value="liters">liters</option><option value="kilo-watt-hours">kilo-watt-hours</option></select></td><td><input type="button" value="Delete Row" onclick="SomeDeleteRowFunction()"></td></tr>';
 
  }
 
 
 document.getElementById("fuel_sales").addEventListener("change", function(){
+run_updates()
+fuel_sales ()
+
+})
+
+document.getElementById("stove_sales").addEventListener("change", function(){
+run_updates()
+})
+
+
+// Start of 2020 section
+document.getElementById("y2020_respondq").addEventListener("change", function(){
+run_updates()
+})
+
+// End of 2020 section
+
+function run_updates(){
+  //Fuel sales
   if(document.getElementById("fuel_sales").value=="yes"){
     document.getElementById("fuel_sales_div").style.display="block";
   }
   else {
     document.getElementById("fuel_sales_div").style.display="none";
   }
-})
+fuel_sales ()
 
-document.getElementById("stove_sales").addEventListener("change", function(){
-  if(document.getElementById("stove_sales").value=="yes"){
+  // stove sales
+    if(document.getElementById("stove_sales").value=="yes"){
     document.getElementById("stove_sales_div").style.display="block";
     document.getElementById("y2021_stove_sales_note").style.display="none";
   }
@@ -366,11 +389,10 @@ document.getElementById("stove_sales").addEventListener("change", function(){
     document.getElementById("stove_sales_div").style.display="none";
     document.getElementById("y2021_stove_sales_note").style.display="block";
   }
-})
+country_sales_details()
+  
 
-
-// Start of 2020 section
-document.getElementById("y2020_respondq").addEventListener("change", function(){
+  // 2020 data
   if (document.getElementById("y2020_respondq").value =="yes"){
     document.getElementById("y2020_section").style.display="none";
     document.getElementById("y2020_respond_note").style.display="block";
@@ -380,9 +402,16 @@ document.getElementById("y2020_respondq").addEventListener("change", function(){
     document.getElementById("y2020_section").style.display="block"
     document.getElementById("y2020_respond_note").style.display="none";
     }
-})
 
-// End of 2020 section
+//Smart meters
+        if (document.getElementById("smartmeter").value=="yes"){
+          document.getElementById("q_smartmeter").style.display="block"
+        }
+        else { document.getElementById("q_smartmeter").style.display="none"}
+
+}
+
+
 
 
 // Start of revenue calculations
@@ -467,9 +496,10 @@ for (var i = 0; i < labels.length; i++) {
 
 for (var i = 0; i < el.length; i++) {
     if(el[i].value =="" || el[i].value =="no_response"){
-
+      console.log(el[i])
       var button = document.createElement("button");
       button.innerHTML = el[i].labels[0].innerText.split('\n')[0].toUpperCase()
+      console.log(el[i].labels[0].innerText.split('\n')[0].toUpperCase())
       button.setAttribute("section",el[i].attributes['data_id'].value)
       button.onclick = function(){err_nav(this.getAttribute("section"))}
       document.getElementById("missed_q").appendChild(button);
@@ -490,6 +520,14 @@ for (var i = 0; i < el.length; i++) {
 }
 
 document.getElementById("check_errors").style.display="block"
+
+if(document.getElementById("check_errors")==""){
+  document.getElementById("submit_btn").style.display="block"
+}
+else{
+  document.getElementById("submit_btn").style.display="block"
+}
+
 err_nav("error_check")
 }
   
@@ -559,9 +597,187 @@ function prevent_negative(){
       neg_el[i].value=0
       neg_el[i].dispatchEvent(new Event('change'));
           }
+    neg_el[i].removeEventListener("change", function(){prevent_negative_helper()})
     neg_el[i].addEventListener("change", function(){prevent_negative_helper()})
   }
+
 }
 prevent_negative()
 function prevent_negative_helper(){prevent_negative()}
 // End of negative numbers
+
+
+
+// Start of login section
+
+function check_key(){
+key_check_search().then(function(results){
+  if (results==1){
+    document.getElementById('login_details').style.display = 'block';
+    document.getElementById('key_error').style.display = 'none';
+    document.getElementById('login_key').style.display = 'none';
+    document.getElementById('nav_div').style.display = 'block';
+    set_values()
+    
+  }
+  else {
+    document.getElementById('login_details').style.display = 'none';
+    document.getElementById('key_error').style.display = 'block';
+    document.getElementById('login_key').style.display = 'block';
+    document.getElementById('nav_div').style.display = 'none';
+  }
+})
+}
+
+function key_submit_send(){
+  key_submit()
+  document.getElementById('new_company').style.display = 'none';
+  document.getElementById('login_details').style.display = 'block';
+  document.getElementById('nav_div').style.display = 'block';
+}
+
+
+//Look for changes in text search
+let timer;              // Timer identifier
+const waitTime = 500;   // Wait time in milliseconds 
+const comp_input = document.getElementById("business_name");
+comp_input.addEventListener('keyup', (e) => {
+    const text = e.currentTarget.value;
+
+    // Clear timer
+    clearTimeout(timer);
+
+    // Wait for X ms and then process the request
+    timer = setTimeout(() => {
+        document.getElementById('login_key').style.display = 'none';
+    document.getElementById('new_company').style.display = 'block';
+    }, waitTime);
+});
+
+  
+// End of login section
+
+
+
+async function save_values(){
+  document.getElementById("save_indicator").style.display="block"
+// document.getElementById("saving").style.display="block";
+input_ids=[];
+input_vals=[];
+all_inputs = document.getElementsByTagName("input");
+
+ for (let i = 0; i < all_inputs.length; i++) {
+  if (all_inputs[i].type=="checkbox") {
+    if(all_inputs[i].checked){
+      input_ids.push(all_inputs[i].id)
+      input_vals.push("true")
+    }
+  }
+  else {
+    if(all_inputs[i].value!==""&&all_inputs[i].id!=="country_search"&&all_inputs[i].id!=="country_search_fuels"){
+      input_ids.push(all_inputs[i].id)
+      input_vals.push(all_inputs[i].value)
+    }
+  }
+ }
+
+var inputs_select = document.getElementsByTagName("select");
+for (let i = 0; i < inputs_select.length; i++) {
+      input_ids.push(inputs_select[i].id)
+      input_vals.push(inputs_select[i].value)
+}
+
+
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
+
+var query_temp = new Parse.Query('survey_2022');
+query_temp.equalTo("business_name", document.getElementById("business_name").value);
+var myObj_temp = await query_temp.first()
+myObj_temp.destroy({})
+
+var myObj = new Parse.Object('survey_2022');  //MOVE THIS TO API
+for (let i = 0; i < input_ids.length; i++) {
+await sleep(1)
+myObj.set(input_ids[i],input_vals[i])
+}
+// myObj.set("user_id",user_id)
+setTimeout(function() {
+myObj.save();  //Send data to server
+// document.getElementById("saving").style.display="none";
+document.getElementById("save_indicator").style.display="none"
+}, 3000);
+
+}
+
+
+
+async function set_values(){
+
+  const query_load = new Parse.Query("survey_2022"); //Connect to server
+  query_load.equalTo("business_name", document.getElementById("business_name").value);
+  query_load.descending("updatedAt");
+  query_load.limit(1);
+  results = await query_load.find();
+  console.log(results)
+  k = Object.keys(results[0].attributes)
+
+  var arg = "invest_source_"
+  var a = k.filter(s => s.includes(arg))
+
+  for(var i=0; i < a.length; i++) {
+    console.log(results[0].get(a[i]))
+    if(a[i]!=='invest_source_1' && typeof results[0].get(a[i]) !== "undefined"){
+      add_investor(a[i].replace(arg, ''))
+    }
+  }
+
+  var arg = "fuel_quant_"
+  var a = k.filter(s => s.includes(arg))
+
+  for(var i=0; i < a.length; i++) {
+    console.log(results[0].get(a[i]))
+    if(typeof results[0].get(a[i]) !== "undefined"){
+      add_smartmeter(a[i].replace(arg, ''))
+    }
+  }
+
+
+  all_inputs = document.getElementsByTagName("input");
+  for (let i = 0; i < all_inputs.length; i++) {
+    if (all_inputs[i].type=="checkbox" && k.includes(all_inputs[i].id)) {
+      document.getElementById(all_inputs[i].id).checked=true;
+      console.log("was true")
+    }
+    else if(k.includes(all_inputs[i].id)){
+      l=k.indexOf(all_inputs[i].id)
+      results[0].get(k[l])
+      document.getElementById(all_inputs[i].id).value=results[0].get(k[l]);
+    }
+ }
+
+inputs_select = document.getElementsByTagName("select");
+for (let i = 0; i < inputs_select.length; i++) {
+  if(k.includes(inputs_select[i].id)){
+    l=k.indexOf(inputs_select[i].id)
+    console.log(i)
+      document.getElementById(inputs_select[i].id).value=results[0].get(k[l]);
+ }
+}
+
+run_updates()
+
+// setTimeout(function() {prep_table()
+// document.getElementById("loading").style.display="none";
+//   }, 5000);
+}
+
+
+const save_interval = setInterval(function() {
+   // method to be executed;
+   if(document.getElementById("business_name").value !== ""){
+   save_values()}
+ }, 120000);
+

@@ -484,7 +484,7 @@ var c = new Awesomplete(search_box, {list: countries});
     document.getElementById('country_search').addEventListener('awesomplete-selectcomplete',async function(){
     // We do these steps after someone clicks on search bar
     var a = countries.indexOf(document.getElementById("country_search").value); //find index of the selected store
-    document.getElementById(country_code[a]).checked = true 
+    document.getElementById("opp_"+country_code[a]).checked = true 
     c.close();
     c.close();
     c.close();
@@ -558,7 +558,7 @@ function countries_data(){
     var checkbox = document.createElement('input');
 	checkbox.type = "checkbox";
 	checkbox.value = i.toString();
-	checkbox.id = country_code[i];
+	checkbox.id = "opp_"+country_code[i];
 	
 	// load table on checkbox click
 	checkbox.classList.add("country_chbx");
