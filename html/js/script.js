@@ -521,11 +521,11 @@ for (var i = 0; i < el.length; i++) {
 
 document.getElementById("check_errors").style.display="block"
 
-if(document.getElementById("check_errors")==""){
-  document.getElementById("submit_btn").style.display="block"
+if(document.getElementById("missed_q").innerHTML==""){
+  document.getElementById("submit_btn").style.display="inline-block"
 }
 else{
-  document.getElementById("submit_btn").style.display="block"
+  document.getElementById("submit_btn").style.display="none"
 }
 
 err_nav("error_check")
